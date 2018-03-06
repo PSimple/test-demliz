@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>demliz-test</title>
+</head>
+<body>
+<script type="text/x-template" id="modal-template">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <slot name="header">
+                            <h3>Редактирование записи</h3>
+                        </slot>
+                    </div>
+                    <div class="modal-body">
+                        <slot name="body">
+                        </slot>
+                    </div>
+                    <div class="modal-footer">
+                        <slot name="footer">
+                            <button class="modal-default-button" @click="$emit('update')">
+                                Сохранить
+                            </button>
+                            <button class="modal-default-button" @click="$emit('remove')">
+                                Удалить
+                            </button>
+                            <button class="modal-default-button" @click="$emit('close')">
+                                Отмена
+                            </button>
+                        </slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+</script>
+<div id="app"></div>
+<script src="/dist/build.js"></script>
+</body>
+</html>
